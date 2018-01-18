@@ -1,0 +1,27 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+#exec /home/kodi/Yandex.Disk/Apps/bin/torrent_autostart.sh &
+#exec /home/kodi/Yandex.Disk/Apps/bin/ping.sh
+#(sleep 60 && systemctl reload transmission-daemon) &
+
+mount -o bind /mnt/data_4/upload/tmp/ /srv/ftp/Upload
+mount -o bind /mnt/data_4/poker/ /srv/ftp/Poker
+mount -o bind /mnt/data_1/ /srv/ftp/Media_1
+mount -o bind /mnt/data_2/ /srv/ftp/Media_2
+mount -o bind /mnt/data_3/ /srv/ftp/Media_3
+
+(sleep 60 && /bin/bash /mnt/backup/Yandex.Disk/Apps/bin/download.sh) &
+
+
+exit 0

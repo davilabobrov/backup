@@ -1,0 +1,34 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+
+# /dev/sda6
+UUID=4af5089c-f5de-4268-a43d-739f68f1c47a	/		ext4		errors=remount-ro	0	1
+# /dev/sda8
+UUID=3b2d4dcc-5e18-4137-960d-d297528194cb	/home	ext4		noatime				0	2
+# /dev/sda5
+#UUID=30957ba3-69c0-4d9b-b652-2c7da1056587	/mnt/testing	ext4	noatime				0	2
+# /dev/sda7
+UUID=f06a55d4-2a84-4d43-a091-7953c0a3273b	none	swap		sw					0	0
+
+
+# /dev/sda1
+UUID=28DAA6C7DAA6911C						/mnt/win_boot	ntfs-3g	noauto			0	0 
+# /dev/sda2
+UUID=B882AA9482AA56A2						/mnt/win_system	ntfs-3g	uid=sir,gid=users,noauto,rw		0	0 
+# /dev/sda3
+UUID=420CB5B50CB5A477						/mnt/win_data	ntfs-3g	uid=sir,gid=users,noauto,rw		0	0
+
+
+# FTP
+# curlftpfs#ftp://{пользователь}:{пароль}@{адрес сервера}/{папка}/ {путь к точке монтирования} fuse rw,allow_other,noauto,user 0 0
+
+curlftpfs#ftp://htpc /mnt/ftp/ fuse rw,allow_other,noauto,user 0 0
+
+# NFS
+#htpc:upload           /home/sir/Public/Upload	        nfs4 rw,noauto,users,nolock,noatime,rsize=32768,wsize=32768 0 0
+#htpc:poker   /home/sir/Public/Poker	nfs4 ro,noauto,users,nolock,noatime,rsize=32768,wsize=32768 0 0

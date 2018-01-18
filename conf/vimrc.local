@@ -1,0 +1,60 @@
+"set gfn=Terminus\ 10    " Шрифт gvim
+set gfn=Droid\ Sans\ Mono\ 11
+colorscheme koehler            " Цветовая схема
+syntax on                               " включить подсветку синтаксиса
+set ts=4                                " табуляция 4 символа
+set nocompatible                " Несовместимость с vi --- так удобнее
+set autoindent                  " Автоматического отступ: в новой строке делать такой же отступ, как и в предыдущей
+
+set ic			" игнорировать регистр при поиске
+
+" Цвет комментариев
+highlight Comment ctermfg=DarkGrey
+"
+" Горячие клавиши
+
+" <F12> нумерация строк
+imap <F12> <Esc>:set<Space>nu!<CR>a
+nmap <F12> :set<Space>nu!<CR>
+
+" <F2> сохранить
+nmap <F2> :w<cr>
+vmap <F2> <esc>:w<cr>i
+imap <F2> <esc>:w<cr>i
+
+" <F4> открыть текущий каталог в новой вкладке
+imap <F4> <Esc>:browse tabnew<CR> 
+map <F4> <Esc>:browse tabnew<CR>
+
+" <F5> переключение вкладок справа-налево 
+imap <F5> <Esc> :tabprev <CR>i
+map <F5> :tabprev <CR>
+
+" <F6> переключение вкладок слева направо
+imap <F6> <Esc> :tabnext <CR>i
+map <F6> :tabnext <CR>
+
+" <F10> выйти
+nmap <F10> :q!<cr>
+vmap <F10> <esc>:q!<cr>i
+imap <F10> <esc>:q!<cr>i
+
+" Вставить из буфера по Shift+F12
+map <S-F12> :r! xclip -o<cr>
+
+" Поддержка кириллицы
+" Переключатель кодировок по <F8>
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set wildmenu
+set wcm=<Tab>
+menu Encoding.CP1251 :e ++enc=cp1251<CR>
+menu Encoding.CP866 :e ++enc=cp866<CR>
+menu Encoding.KOI8-U :e ++enc=koi8-u<CR>
+menu Encoding.UTF-8 :e ++enc=utf-8<CR>
+menu Encoding.Save_CP1251 :w ++enc=cp1251<CR>
+menu Encoding.Save_CP866 :w ++enc=cp866<CR>
+menu Encoding.Save_KOI8-U :w ++enc=koi8-u<CR>
+menu Encoding.Save_UTF-8 :w ++enc=utf-8<CR>
+map <F8> :emenu Encoding.<TAB>

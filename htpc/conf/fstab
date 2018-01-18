@@ -1,0 +1,27 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda2 during installation
+UUID=fe1d4f7f-981a-4d9f-adcc-0277a98afddb	/               ext4    errors=remount-ro				0	1
+# /dev/sda5
+UUID=04e0f7e5-77de-4bde-9ab2-cfcefba93b09	/mnt/backup     ext4    defaults						0	2
+# /mnt/data_1 was on /dev/sda6 during installation
+UUID=c7460388-9a54-4758-84bf-4795f3e5f248	/mnt/data_1     ext4    defaults						0	2
+# /mnt/data_2 was on /dev/sda7 during installation
+UUID=c729ad37-fb2e-4980-b3d0-e4bd754d144b	/mnt/data_2     ext4    defaults						0	2
+# /mnt/data_3 was on /dev/sda8 during installation
+UUID=1becdb84-5851-475a-a288-ef1cf7bd7dac	/mnt/data_3     ext4    defaults						0	2
+# /dev/sdb3
+UUID=bf74b12e-9b2e-4b35-b1d2-9d4220459cfd	/mnt/data_4     ext4    defaults						0	2
+
+# swap was on /dev/sda1 during installation
+UUID=69869414-614e-44ad-a8d2-dc182eb1fcc4	none            swap    sw								0	0
+
+
+UUID=E8C615BDC6158CC6						/mnt/flashdrive	ntfs-3g	defaults,noatime,auto,nofail	0	2
+#/dev/sdb1: UUID="A8262DF4262DC462" TYPE="ntfs" PARTUUID="603ce62e-01"
+#/dev/sdb2: UUID="56E6346BE6344E0D" TYPE="ntfs" PARTUUID="603ce62e-02"
